@@ -40,8 +40,8 @@ export class TargetSelector {
     for (const included of targetStrings) {
       let globbedPath;
       let targets;
-      if (included.includes(":")) {
-        const split = included.split(":");
+      if (included.includes("::")) {
+        const split = included.split("::");
         globbedPath = split[0];
         targets = split[1].split(",");
       } else {
