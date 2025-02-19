@@ -40,8 +40,8 @@ export class TargetSelector {
     for (const included of targetStrings) {
       let globbedPath;
       let targets;
-      if (included.includes(":")) {
-        const split = included.split(":");
+      if (included.includes("::")) {
+        const split = included.split("::");
         globbedPath = split[0];
         targets = split[1].split(",");
       } else {
@@ -49,7 +49,7 @@ export class TargetSelector {
         targets = ["*"];
       }
 
-      const actualPaths = globby.sync(globbedPath);
+      const actualPaths = globby.sync(globbedPath.replaceAll("\\", "/"));
 
       for (let _path of actualPaths) {
         _path = path.resolve(_path);

@@ -129,7 +129,7 @@ export class JavaScriptRandomSampler extends JavaScriptTestCaseSampler {
       if (constructor_ && prng.nextBoolean(this.statementPoolProbability)) {
         // TODO ignoring getters and setters for now
         const result = this.rootContext.getSubTargets(
-          constructor_.typeIdentifier.split(":")[0],
+          constructor_.typeIdentifier.split("::")[0],
         );
 
         if (isFailure(result)) throw result.error;
@@ -276,7 +276,7 @@ export class JavaScriptRandomSampler extends JavaScriptTestCaseSampler {
     if (constructor_.length === 0) {
       // default constructor no args
       // TODO bad splitting of ids (we should add paths to targets)
-      const filePath = class_.id.split(":")[0];
+      const filePath = class_.id.split("::")[0];
       const export_ = unwrapOr(this.rootContext.getExports(filePath), []).find(
         (export_) => export_.id === class_.id,
       );
@@ -642,7 +642,7 @@ export class JavaScriptRandomSampler extends JavaScriptTestCaseSampler {
           case DiscoveredObjectKind.CLASS: {
             // find constructor of class
             const result = this.rootContext.getSubTargets(
-              typeFromTypePool.id.split(":")[0],
+              typeFromTypePool.id.split("::")[0],
             );
 
             if (isFailure(result)) throw result.error;

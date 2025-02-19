@@ -40,7 +40,7 @@ export class FunctionCallGenerator extends CallGenerator<FunctionCall> {
     const arguments_: Statement[] = this.sampleArguments(depth, type_);
 
     // TODO bad splitting of ids (we should add paths to targets)
-    const filePath = exportIdentifier.split(":")[0];
+    const filePath = exportIdentifier.split("::")[0];
     const export_ = unwrapOr(this.rootContext.getExports(filePath), []).find(
       (export_) => export_.id === exportIdentifier,
     );

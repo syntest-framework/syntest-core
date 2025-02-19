@@ -60,7 +60,7 @@ export class SourceCoverage extends classes.FileCoverage {
     const endColumn = (<{ column: number }>(<unknown>loc.end)).column;
     const endIndex = (<{ index: number }>(<unknown>loc.end)).index;
 
-    return `${this._filePath}:${startLine}:${startColumn}:::${endLine}:${endColumn}:::${startIndex}:${endIndex}`;
+    return `${this._filePath}::${startLine}:${startColumn}:::${endLine}:${endColumn}:::${startIndex}:${endIndex}`;
   }
 
   public _getPlaceholderNodeId(loc): string {
@@ -77,7 +77,7 @@ export class SourceCoverage extends classes.FileCoverage {
     const endColumn = (<{ column: number }>(<unknown>loc.end)).column;
     const endIndex = (<{ index: number }>(<unknown>loc.end)).index;
 
-    return `${this._filePath}:${startLine}:${startColumn}:::${endLine}:${endColumn}:::${startIndex}:${endIndex}`;
+    return `${this._filePath}::${startLine}:${startColumn}:::${endLine}:${endColumn}:::${startIndex}:${endIndex}`;
   }
 
   _cloneLocation(loc) {

@@ -248,7 +248,7 @@ export class ControlFlowGraphVisitor extends AbstractSyntaxTreeVisitor {
     const endColumn = (<{ column: number }>(<unknown>path.node.loc.end)).column;
     const endIndex = (<{ index: number }>(<unknown>path.node.loc.end)).index;
 
-    return `${this._filePath}:${startLine}:${startColumn}:::${endLine}:${endColumn}:::${startIndex}:${endIndex}`;
+    return `${this._filePath}::${startLine}:${startColumn}:::${endLine}:${endColumn}:::${startIndex}:${endIndex}`;
   }
 
   /**
