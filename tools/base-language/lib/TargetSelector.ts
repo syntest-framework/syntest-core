@@ -49,7 +49,7 @@ export class TargetSelector {
         targets = ["*"];
       }
 
-      const actualPaths = globby.sync(globbedPath);
+      const actualPaths = globby.sync(globbedPath.replaceAll("\\", "/"));
 
       for (let _path of actualPaths) {
         _path = path.resolve(_path);

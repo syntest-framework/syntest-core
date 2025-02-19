@@ -24,7 +24,7 @@ export class FileSelector {
     const targetMap = new Set<string>();
 
     for (const globbedPath of paths) {
-      const actualPaths = globby.sync(globbedPath);
+      const actualPaths = globby.sync(globbedPath.replaceAll("\\", "/"));
 
       for (const path_ of actualPaths) {
         const absolutePath = path.resolve(path_);

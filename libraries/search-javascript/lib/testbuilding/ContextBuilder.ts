@@ -147,7 +147,7 @@ export class ContextBuilder {
     const path_ = export_.filePath.replace(
       path.resolve(this.targetRootDirectory),
       path.join(this.sourceDirectory, path.basename(this.targetRootDirectory)),
-    );
+    ).replaceAll("\\", "/");
 
     const exportedName = export_.renamedTo;
     let import_: Import = {

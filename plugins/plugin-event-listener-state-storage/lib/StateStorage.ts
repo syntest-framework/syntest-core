@@ -86,10 +86,10 @@ export class StateStorage {
       return 1;
     }
     const [indexStartA, indexEndA] = partsA[2]
-      .split(":")
+      .split("::")
       .map((x) => Number.parseInt(x));
     const [indexStartB, indexEndB] = partsB[2]
-      .split(":")
+      .split("::")
       .map((x) => Number.parseInt(x));
 
     if (indexStartA < indexStartB) {
